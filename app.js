@@ -53,6 +53,8 @@ function randomImage() {
   return Math.floor(Math.random() * allProducts.length);
 }
 
+// let product = allProducts[randomImage()];
+
 
 // Generate 3 unique indexes
 
@@ -75,7 +77,7 @@ function uniqueImageChecker () {
   // console.log('uniqueImageChecker', imageArray);
 }
 
-// ^from Camilla
+// ^^shared by Camilla
 
 
 
@@ -111,7 +113,14 @@ function renderImages (){
 
 renderImages();
 
+// rounds counter
 
+function roundCounter(){
+  let roundCounter = document.getElementById('roundCounter');
+  roundCounter.innerText = currentRound;
+}
+
+roundCounter();
 
 // Event Listener:
 
@@ -126,21 +135,18 @@ function showNewImage(event) {
       allProducts[i].clicked++;
     }
   }
+
   renderImages();
+
   currentRound++;
+
   if (currentRound === 25){
     imagesSection.removeEventListener('click', showNewImage);
   }
 
-  // rounds counter
-  let roundCounter = document.getElementById('roundCounter');
-  roundCounter.innerText = currentRound;
+  roundCounter();
 }
 
-// rounds counter
-
-let roundCounter = document.getElementById('roundCounter');
-roundCounter.innerText = `${currentRound}`;
 
 // results data
 
@@ -156,7 +162,7 @@ function results (){
 
     if (currentRound === 25){
       title.innerText = 'Results';
-      
+
       let dataRow = document.createElement('p');
       dataRow.innerText = `${allProducts[i].name} had ${allProducts[i].clicked} votes, and was seen ${allProducts[i].viewed} times.`;
       dataSection.appendChild(dataRow);
