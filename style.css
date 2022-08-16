@@ -1,19 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
 
+html {
+    background-color: rgba(0, 128, 0, 0.651);
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     display: flex;
     flex-direction: column;
-    margin: 40px 100px;
+    margin: 0 100px;
     border:solid  rgb(153, 205, 50);
+    background-color: white;
 }
 
 header {
     margin-bottom: 60px;
     display: flex;
     align-items:center;
-    justify-content:left;
+    justify-content:center;
     gap:10px;
     width: 100%;
+    padding:0px;
     background-color: rgba(153, 205, 50, 0.601);
 }
 
@@ -26,28 +34,33 @@ header {
 
 h1 {
     font-family: 'DynaPuff', cursive;
-    font-size: 60px;
+    font-size: 72px;
+    text-shadow:black 2px 2px;
+    color:green;
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0px 100px;
 }
 
 #productImages {
     display: flex;
-    gap:20px;
+    justify-content: space-between;
+    gap:40px;
+    margin: 0 100px;
 }
 
 img {
     width: 400px;
     height: 400px;
-    border: solid rgb(153, 205, 50) 2px;
+    border: solid rgb(153, 205, 50) 3px;
 }
 
 img:hover {
-    border: orange solid 2px;
+    border: orange solid 3px;
 }
 
 #rounds {
@@ -60,7 +73,7 @@ button {
 }
 
 #resultsSection {
-    margin: 60px 100px;
+    padding: 60px 100px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
