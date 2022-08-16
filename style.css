@@ -9,7 +9,7 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    margin: 0 100px;
+    margin:50px 100px;
     border:solid  rgb(153, 205, 50);
     background-color: white;
 }
