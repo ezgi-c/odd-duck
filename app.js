@@ -39,6 +39,12 @@ function Product(name) {
   this.clicked = 0;
 }
 
+// constructor to capitalize first letter of strings
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
+
 //--------------------CONSTRUCTOR METHODS
 
 //--------------------FUNCTIONS
@@ -48,7 +54,6 @@ function randomImage() {
   // return a number between 0 - 6 (6 is the index of the last item in allProducts)
   return Math.floor(Math.random() * allProducts.length);
 }
-
 
 // Generate 19 unique indexes
 function uniqueImageChecker () {
@@ -153,7 +158,7 @@ function results (){
       title.innerText = 'Results';
 
       let dataRow = document.createElement('p');
-      dataRow.innerText = `${allProducts[i].name} had ${allProducts[i].clicked} votes, and was seen ${allProducts[i].viewed} times.`;
+      dataRow.innerText = `${allProducts[i].name.capitalize()} had ${allProducts[i].clicked} votes, and was seen ${allProducts[i].viewed} times.`;
       dataSection.appendChild(dataRow);
     }
   }
@@ -166,12 +171,13 @@ function results (){
 function resultsChart() {
 
   if (currentRound === 25){
+
     const labels = [];
     const views = [];
     const clicks = [];
 
     for (let i = 0; i < allProducts.length; i++) {
-      labels.push(allProducts[i].name);
+      labels.push(allProducts[i].name.capitalize());
       views.push(allProducts[i].viewed);
       clicks.push(allProducts[i].clicked);
     }

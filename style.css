@@ -78,6 +78,7 @@ button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 30px;
 }
 
@@ -85,19 +86,20 @@ button {
     font-weight: 400;
 }
 
-/* #myChart {
-    width: 600px;
-    height: 400px;    
-} */
+#chart {
+    width: 98%; 
+    height: 50%;
+}
 
 #data {
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-between;
+    justify-content:space-around;
+    font-size: 12px;
 }
 
 #data > p {
-   width: 400px;
+   width: 350px;
 }
 
 
