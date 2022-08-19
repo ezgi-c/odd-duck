@@ -1,3 +1,4 @@
-# Code Fellows Code 201 Lab 11 - Odd Duck Products
+# Code Fellows Code 201 - Odd Duck Products
 
-remember to do my work on  lab branch 
+## Credit
+`uniqueImageChecker()` function was shared by Camilla Reese.
