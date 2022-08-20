@@ -55,10 +55,14 @@ function randomImage() {
   return Math.floor(Math.random() * allProducts.length);
 }
 
-// Generate 19 unique indexes
+// Generate random unique indexes of the products
 function uniqueImageChecker () {
-  // while there are fewer than 3 images
-  while (imageArray.length < 19) {
+
+  imageArray.shift();
+  imageArray.shift();
+  imageArray.shift();
+
+  while (imageArray.length < 6) {
     // generate an index
     let randomIndex = randomImage();
     // if repeated image, don't do anything
@@ -70,7 +74,7 @@ function uniqueImageChecker () {
       imageArray.push(randomIndex);
     }
   }
-  // console.log('uniqueImageChecker', imageArray);
+  console.log('uniqueImageChecker', imageArray);
 }
 // ^^shared by Camilla
 
@@ -99,10 +103,6 @@ function renderImages (){
   allProducts[imageArray[0]].viewed++;
   allProducts[imageArray[1]].viewed++;
   allProducts[imageArray[2]].viewed++;
-
-  imageArray.shift();
-  imageArray.shift();
-  imageArray.shift();
 }
 
 
@@ -128,14 +128,14 @@ button.addEventListener('click', resultsChart);
 
 // Event Handler (show 3 new unique images)
 function showNewImage(event) {
-
+// track clicked images
   let clickedImage = event.target.title;
   for (let i = 0; i < allProducts.length; i++){
     if (clickedImage === allProducts[i].name){
       allProducts[i].clicked++;
     }
   }
-
+// invoke renderImages function
   renderImages();
 
   currentRound++;
