@@ -74,7 +74,7 @@ function uniqueImageChecker () {
       imageArray.push(randomIndex);
     }
   }
-  console.log('uniqueImageChecker', imageArray);
+  // console.log('uniqueImageChecker', imageArray);
 }
 // ^^shared by Camilla
 
@@ -112,6 +112,36 @@ function roundCounter(){
   roundCounter.innerText = currentRound;
 }
 
+// function setItems()
+function setItems(key, value) {
+  let stringified = JSON.stringify(value);
+  localStorage.setItem(key, stringified);
+}
+
+// function getItems()
+function getItems(key) {
+  let stringified =localStorage.getItem(key);
+  let parsed = JSON.parse(stringified);
+  return parsed;
+}
+
+//get updated product array and round from local storage if they exist, reset survey after 25 rounds
+function onLoad(){
+  if (getItems('allProducts')) {
+    allProducts = getItems('allProducts');
+  }
+
+  if (getItems('round')) {
+    currentRound = getItems('round');
+  }
+
+  if (currentRound >= 25){
+    localStorage.removeItem('allProducts');
+    localStorage.removeItem('round');
+    imagesSection.removeEventListener('click', showNewImage);
+  }
+}
+
 //--------------------EVENT LISTENERS
 
 // Event Listener (clicking on an image):
@@ -135,7 +165,7 @@ function showNewImage(event) {
       allProducts[i].clicked++;
     }
   }
-// invoke renderImages function
+  // invoke renderImages function
   renderImages();
 
   currentRound++;
@@ -145,6 +175,11 @@ function showNewImage(event) {
   }
 
   roundCounter();
+
+  // save updated product array and rounds to local storage
+  setItems('allProducts', allProducts);
+  setItems('round', currentRound);
+
 }
 
 // Event Handler (render results)
@@ -216,17 +251,9 @@ function resultsChart() {
 
 //--------------------FUNCTION CALLS
 
+onLoad();
+
 renderImages();
 
 roundCounter();
-
-
-
-
-
-
-
-
-
-
 
